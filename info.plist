@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>action</key>
+	<false/>
+	<key>background</key>
+	<true/>
+	<key>category</key>
+	<string>APPLESCRIPTS</string>
+	<key>command</key>
+	<string>on alfred_script(q)	-- Feel free to change this, I found 0.75 seems to work 100% of the time	set myDelay to 0.75		set productKey to q as string	if productKey is "" then		set productKey to (the clipboard) as string	end if		if productKey is "" then		return	end if		tell application "Steam"		activate		tell application "System Events"			tell process "Steam"				click menu item "Activate a Product on Steam..." of menu "Games" of menu bar item "Games" of menu bar 1				delay myDelay				key code 36				delay myDelay				key code 36				delay myDelay				repeat with x in characters 1 thru end of productKey					if (x ≥ "a" and x ≤ "z") or (x ≥ "0" and x ≤ "9") then						keystroke x					end if				end repeat				delay 0.25				key code 36				delay myDelay				repeat					if window "Steam - Working" exists then						delay 0.25					else						exit repeat					end if				end repeat				key code 36				delay myDelay				key code 53			end tell		end tell	end tell		tell application "System Events" to keystroke tab using command downend alfred_script</string>
+	<key>disabled</key>
+	<false/>
+	<key>keyword</key>
+	<string>steamer</string>
+	<key>parameter</key>
+	<integer>1</integer>
+	<key>subtitle</key>
+	<string>Activate products on Steam by including the key or having it on the clipboard</string>
+	<key>title</key>
+	<string>Steam Activator</string>
+</dict>
+</plist>
