@@ -137,13 +137,16 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>from workflow import Workflow
-import os
+				<string>import os
+from workflow import Workflow
+from workflow.background import run_in_background, is_running
 
 wf = Workflow()
 user = wf.settings.get('steam_user', None)
 if user:
 	os.remove(wf.cachefile("games_%s.%s" % (user, wf.cache_serializer)))
+	if not is_running('update'):
+		run_in_background('update', ['/usr/bin/python', wf.workflowfile('background.py')])
 </string>
 				<key>type</key>
 				<integer>3</integer>
