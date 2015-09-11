@@ -1,0 +1,4 @@
+requests==2.7.0
+html5lib==0.9999999
+Alfred-Workflow==1.13
+Pillow==2.9.0

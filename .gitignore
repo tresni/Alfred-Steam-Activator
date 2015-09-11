@@ -1,0 +1,7 @@
+*.pyc
+*.dist-info
+six.py
+html5lib/
+PIL/
+requests/
+workflow/

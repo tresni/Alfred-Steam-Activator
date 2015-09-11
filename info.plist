@@ -2,23 +2,252 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>action</key>
-	<false/>
-	<key>background</key>
-	<true/>
-	<key>category</key>
-	<string>APPLESCRIPTS</string>
-	<key>command</key>
-	<string>on alfred_script(q)	-- Feel free to change this, I found 0.75 seems to work 100% of the time	set myDelay to 0.75		set productKey to q as string	if productKey is "" then		set productKey to (the clipboard) as string	end if		if productKey is "" then		return	end if		tell application "Steam"		activate		tell application "System Events"			tell process "Steam"				click menu item "Activate a Product on Steam..." of menu "Games" of menu bar item "Games" of menu bar 1				delay myDelay				key code 36				delay myDelay				key code 36				delay myDelay				repeat with x in characters 1 thru end of productKey					if (x ≥ "a" and x ≤ "z") or (x ≥ "0" and x ≤ "9") then						keystroke x					end if				end repeat				delay 0.25				key code 36				delay myDelay				repeat					if window "Steam - Working" exists then						delay 0.25					else						exit repeat					end if				end repeat				key code 36				delay myDelay				key code 53			end tell		end tell	end tell		tell application "System Events" to keystroke tab using command downend alfred_script</string>
+	<key>bundleid</key>
+	<string>com.brianandjenny.steamactivator</string>
+	<key>connections</key>
+	<dict>
+		<key>1240238C-9692-4374-B80A-1D6FDE79D6AA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>138BCF96-6897-4847-A7C8-F9384B6299B6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>209CD29A-8F7F-4DC5-A007-49291F1926AF</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<array/>
+		<key>209CD29A-8F7F-4DC5-A007-49291F1926AF</key>
+		<array/>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1DE7E10E-B088-41A0-9AB1-45300400EA5D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Brian Hartvigsen</string>
+	<key>description</key>
+	<string>Activate your Steam codes with a quick keystroke or keyword</string>
 	<key>disabled</key>
 	<false/>
-	<key>keyword</key>
-	<string>steamer</string>
-	<key>parameter</key>
-	<integer>1</integer>
-	<key>subtitle</key>
-	<string>Activate products on Steam by including the key or having it on the clipboard</string>
-	<key>title</key>
-	<string>Steam Activator</string>
+	<key>name</key>
+	<string>Steam</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>set q to "{query}"-- Feel free to change this, I found 0.75 seems to work 100% of the timeset myDelay to 0.75set productKey to q as stringif productKey is "" then	set productKey to (the clipboard) as stringend ifif productKey is "" then	returnend iftell application "Steam"	activate	tell application "System Events"		tell process "Steam"			click menu item "Activate a Product on Steam..." of menu "Games" of menu bar item "Games" of menu bar 1			delay myDelay			key code 36			delay myDelay			key code 36			delay myDelay			repeat with x in characters 1 thru end of productKey				if (x ≥ "a" and x ≤ "z") or (x ≥ "0" and x ≤ "9") then					keystroke x				end if			end repeat			delay 0.25			key code 36			delay myDelay			repeat				if window "Steam - Working" exists then					delay 0.25				else					exit repeat				end if			end repeat			key code 36			delay myDelay			key code 53		end tell	end tellend telltell application "System Events" to keystroke tab using command down</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>16039760-F173-4AB8-9C73-DA7401D5DE23</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
+				<string></string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>1240238C-9692-4374-B80A-1D6FDE79D6AA</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>steam</string>
+				<key>subtext</key>
+				<string>Get your game on!</string>
+				<key>text</key>
+				<string>Steam Activator</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>from workflow import Workflow
+import os
+
+wf = Workflow()
+user = wf.settings.get('steam_user', None)
+if user:
+	os.remove(wf.cachefile("games_%s.%s" % (user, wf.cache_serializer)))
+</string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1DE7E10E-B088-41A0-9AB1-45300400EA5D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>steam</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>loading games</string>
+				<key>script</key>
+				<string>/usr/bin/python script.py "{query}"</string>
+				<key>subtext</key>
+				<string>Doing stuff</string>
+				<key>title</key>
+				<string>Steam Library</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>138BCF96-6897-4847-A7C8-F9384B6299B6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>do shell script "open steam://run/{query}"</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>209CD29A-8F7F-4DC5-A007-49291F1926AF</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>1240238C-9692-4374-B80A-1D6FDE79D6AA</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>138BCF96-6897-4847-A7C8-F9384B6299B6</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>1DE7E10E-B088-41A0-9AB1-45300400EA5D</key>
+		<dict>
+			<key>ypos</key>
+			<real>110</real>
+		</dict>
+		<key>209CD29A-8F7F-4DC5-A007-49291F1926AF</key>
+		<dict>
+			<key>ypos</key>
+			<real>220</real>
+		</dict>
+		<key>2C99F6F1-EF16-4CF1-9762-5D05A1FFAA4D</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
 </dict>
 </plist>
