@@ -27,6 +27,22 @@
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>887E8177-FC68-4A5A-A57D-D1252D570F0A</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Open in Steam</string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>475AC3B9-2CE8-4F5D-9B54-053E8FCABAE5</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Open up Game Hub</string>
+			</dict>
 		</array>
 		<key>16039760-F173-4AB8-9C73-DA7401D5DE23</key>
 		<array/>
@@ -214,6 +230,44 @@ if user:
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>126</integer>
+				<key>script</key>
+				<string>open "steam://nav/games/details/{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>887E8177-FC68-4A5A-A57D-D1252D570F0A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open "steam://url/GameHub/{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>475AC3B9-2CE8-4F5D-9B54-053E8FCABAE5</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -248,6 +302,16 @@ if user:
 		<dict>
 			<key>ypos</key>
 			<real>60</real>
+		</dict>
+		<key>475AC3B9-2CE8-4F5D-9B54-053E8FCABAE5</key>
+		<dict>
+			<key>ypos</key>
+			<real>460</real>
+		</dict>
+		<key>887E8177-FC68-4A5A-A57D-D1252D570F0A</key>
+		<dict>
+			<key>ypos</key>
+			<real>340</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
